@@ -1,5 +1,5 @@
 action_endpoint:
-  url: http://bot_actions:5055/webhook
+  url: http://localhost:5055/webhook
 
 #nlg:
 #  url: http://localhost:5056/nlg

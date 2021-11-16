@@ -1,54 +1,27 @@
-language: pt
+recipe: default.v1
+language: en
 
 pipeline:
-  - name: SpacyNLP
-    model: "pt_core_news_lg"
-  - name: SpacyTokenizer
-    # intent_tokenization_flag: True # para multi-intent, precisa ter exemplos de intents combinados na nlu
-    # intent_split_symbol: "+" # para multi-intent, precisa ter exemplos de intents combinados na nlu
-  - name: SpacyFeaturizer
-  - name: RegexFeaturizer
-  - name: LexicalSyntacticFeaturizer
-  - name: CountVectorsFeaturizer
-  - name: CountVectorsFeaturizer
+  - name: "WhitespaceTokenizer"
+  - name: "RegexFeaturizer"
+  - name: "LexicalSyntacticFeaturizer"
+  - name: "CountVectorsFeaturizer"
+  - name: "CountVectorsFeaturizer"
     analyzer: "char_wb"
     min_ngram: 1
     max_ngram: 4
-  - name: DIETClassifier
+  - name: "DIETClassifier"
     epochs: 100
-  - name: EntitySynonymMapper
-  - name: ResponseSelector
-    epochs: 100
-
-  # - name: "WhitespaceTokenizer"
-  # - name: "RegexFeaturizer"
-  # - name: "LexicalSyntacticFeaturizer"
-  # - name: "CountVectorsFeaturizer"
-  # - name: "CountVectorsFeaturizer"
-  #   analyzer: "char_wb"
-  #   min_ngram: 1
-  #   max_ngram: 4
-  # - name: "DIETClassifier"
-  #   epochs: 100
-  # - name: "EntitySynonymMapper"
-  # - name: ResponseSelector
-  #   epochs: 100
-  # - name: FallbackClassifier
-  #   threshold: 0.7
+  - name: FallbackClassifier
+    threshold: 0.4
+    ambiguity_threshold: 0.1
+  - name: "EntitySynonymMapper"
 
 policies:
   - name: TEDPolicy
-    epochs: 10
-    featurizer:
-    - name: MaxHistoryTrackerFeaturizer
-      max_history: 5
-      state_featurizer:
-        - name: BinarySingleStateFeaturizer
-  - name: AugmentedMemoizationPolicy
     max_history: 5
+    epochs: 200
+    batch_size: 50
+    max_training_samples: 300
+  - name: MemoizationPolicy
   - name: RulePolicy
-    core_fallback_threshold: 0.3
-    core_fallback_action_name: "action_default_fallback"
-    enable_fallback_prediction: True
-
-
