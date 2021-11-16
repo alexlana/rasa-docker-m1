@@ -1,0 +1,276 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- port_dog_at_work
+- port_ubec
+- port_skyhub
+- port_snowland
+- port_origo
+- port_travelheroes
+- port_cena2020
+- contact_form:
+    use_entities: []
+- deny
+- contato
+- affirm
+- o_q_vc_faz
+- bot_challenge
+- fale_sobre_o_bot
+- sou_desenvolvedor
+- greet_pergunta
+- sou_curioso
+- greet
+- diiiia
+- greet_e_vc
+- obliviate
+- bot_fala_primeiro
+- pedir_meio_de_contato
+- tem_portfolio
+- taaaarde
+- nooooite
+- help_me
+- thankyou
+- goodbye
+- tem_experiencia
+- search_concerts
+- search_venues
+- compare_reviews
+- nlu_fallback
+- how_to_get_started
+- whats_your_name
+- out_of_scope
+entities:
+- area_negocio_cliente
+- empresa
+- funcionario
+- linguagem_programacao
+- meio_de_contato
+- nossa_area_trabalho
+- nosso_cargo
+- user_email
+- user_mensagem
+- user_name
+- user_telefone
+- user_tipo
+slots:
+  area_negocio_cliente:
+    type: text
+    influence_conversation: false
+  concerts:
+    type: list
+    influence_conversation: false
+  likes_music:
+    type: bool
+    influence_conversation: true
+  linguagem_programacao:
+    type: text
+    influence_conversation: false
+  nosso_cargo:
+    type: text
+    influence_conversation: false
+  requested_slot:
+    type: text
+    influence_conversation: false
+  user_email:
+    type: text
+    influence_conversation: false
+  user_mensagem:
+    type: text
+    influence_conversation: false
+  user_name:
+    type: text
+    influence_conversation: true
+  user_telefone:
+    type: text
+    influence_conversation: false
+  user_tipo:
+    type: categorical
+    influence_conversation: true
+    values:
+    - desenvolvedor
+    - cliente
+    - curioso
+    - __other__
+  venues:
+    type: list
+    influence_conversation: false
+responses:
+  utter_dog_at_work:
+  - text: Esse site valorizou um visual bonito, que cria empatia com os donos de pet e nosso trabalho de S.E.O. o levou a um bom ranking no DF.
+  utter_ubec:
+  - text: Os portais da UBEC foram um projeto bem longo. Se iniciou com alguns meses de planejamento, criação e desenvolvimento do padrão geral e se extendeu com etapas que atenderam as necessidades específicas de cada universidade.
+  utter_skyhub:
+  - text: Havia pouco tempo para o desenvolvimento desse projeto para uma iniciativa dos laboratórios Sabin para fomentar a inovação na área da saúde.
+  utter_snowland:
+  - text: Tivemos orgulho de desenvolver o site desses grandes parceiros. Foi um trabalho que trouxe muito aprendizado.
+  utter_origo:
+  - text: A Órigo valoriza muito a saúde e o comércio justo. O site teve uma criação tão cuidadosa quanto a forma de trabalhar da empresa e o desenvolvimento foi muito desafiador.
+  utter_travelheroes:
+  - text: Esse trabalho para a gigante internacional S.A.P. envolveu a edição de vídeo e de cartazes com fotos dos usuários feitas online. Tipo de projeto que exige bastante da infraestrutura e dos programadores.
+  utter_cena2020:
+  - text: Foi uma honra participar desse projeto cultural tradicional de Brasília. O site não trouxe muita dificuldade técnica, mas aproveitamos para investir na performance.
+
+  utter_algo_mais:
+  - text: Posso ajudar em algo mais?
+  - text: Ajudo em algo mais?
+  - text: Gostaria de mais alguma coisa?
+  - text: No que mais posso ser útil?
+  utter_o_q_vc_faz:
+  - text: Trabalhamos com programação para web, produzindo sites, principalmente. Quer ver trabalhos já desenvolvidos?
+  - text: Somos programadores e trabalhamos desenvolvendo, principalmente, websites. Quer conhecer alguns dos nossos trabalhos?
+  utter_veja_o_portfolio:
+  - text: Esses trabalhos na tela são alguns dos nossos projetos. Clique no que te interessar para visualizar.
+  - text: Esses são alguns exemplos do que já foi desenvolvido por nós. Clique no que te interessar para visualizar.
+  utter_negar_contato:
+  - text: Não posso informar meios de contato que não estejam disponíveis aqui no site.
+  utter_help_me:
+  - text: Pode me pedir coisas como "apresente-me seu portfólio", ou "quais serviços vocês oferecem", ou até pedir informações sobre mim. Do que você precisa?
+  - text: Posso ajudar com informações sobre nossos serviços, trabalhos realizados, envio de mensagens... coisas do tipo.
+  utter_tem_experiencia:
+  - text: "O [Alex](funcionario) se formou em comunicação,\n trabalhou como arte-finalista, diretor de arte e \n designer. Também foi empresário e lojista, sócio de lojas físicas e virtual. Seu\n primeiro site foi desenvolvido em 1997 e estão em seu\n portfólio de desenvolvedor sites da Uber, Católica de \n Brasília, Órigo e vários outros. Já são mais de 20 anos!"
+  - text: Existe experiência!
+  - text: É pra mais de 20 anos!
+  utter_tem_portfolio:
+  - text: Foram muitos trabalhos ao longo dos anos, alguns deles estão na tela. Clique em cada um para saber mais.
+  - text: Esses trabalhos na tela são alguns dos nossos projetos. Clique no que te interessar para visualizar.
+  - text: Veja esses trabalhos, clique sobre o que te interessar para ver mais detalhes.
+  utter_greet:
+  - text: Olá!
+  - text: Opa!
+  - text: Oi!
+  utter_greet_pergunta:
+  - text: E aí?!
+  - text: Como vai?
+  - text: Tudo bem?
+  - text: Tudo certo?
+  utter_greet_resposta:
+  - text: Tubo bem! E com você?
+  - text: Tudo ótimo! E você?
+  utter_greet_fechando:
+  - text: Bom demais!
+  - text: Tudo bem!
+  - text: Tudo certo
+  utter_goodbye:
+  - text: Tchau :(
+  - text: Até mais!
+  - text: Até!
+  - text: Até logo!
+  - text: Inté!
+  utter_fallback:
+  - text: Desculpe, não entendi. Você pode dizer com outras palavras?
+  - text: Não entendi. Você pode repetir com outras palavras?
+  - text: Quando eu não entendo, eu realmente não entendo... pode dizer de outra forma?
+  utter_out_of_scope:
+  - text: Desculpe, não consigo entender.
+  utter_please_rephrase:
+  - text: Desculpe, não consegui entender. Pode repetir de outra forma?
+  utter_default:
+  - text: Não consegui entender. Pode repetir com outras palavras, por favor?
+  utter_youarewelcome:
+  - text: De nada!
+  - text: Por nada!
+  - text: Tudo bem.
+  - text: É sempre um prazer ajudar!
+  utter_get_started:
+  - text: Posso ajudar com informações de sobre nós. Já conhece nosso trabalho?
+  utter_awesome:
+  - text: Ótimo! Pode me pedir coisas como "apresente-me seu portfólio" ou "quais serviços vocês oferecem"
+  utter_contato:
+  - text: Posso passar seu recado a um humano! Pode ser?
+  - text: O pessoal agora está produzindo, mas posso passar seus dados e eles retornam! O que acha?
+  - text: Deixe seus dados que um humano vai retornar. Pode ser assim?
+  utter_ask_user_name:
+  - text: Qual o seu nome?
+  utter_ask_user_email:
+  - text: Qual o seu e-mail?
+  utter_ask_user_telefone:
+  - text: Qual o seu telefone?
+  utter_ask_user_mensagem:
+  - text: Enfim, qual sua mensagem?
+  utter_slots_values:
+  - text: "Enviei essas informações:\n - Nome: {user_name}\n - E-mail: {user_email}\n - Telefone: {user_telefone}\n - Mensagem: {user_mensagem}"
+  utter_my_name:
+  - text: Meu nome é Hexaquad
+  - text: Meu nome é Hexaquad, mas pode me chamar de Hexa
+  - text: Eu sou o Hexaquad, mas também me chamam de Hexa
+  - text: Meu nome é Hexa. Hexaquad.
+  utter_iamabot:
+  - text: Sou uma inteligência artificial conversacional.
+  - text: Eu sou um chatbot.
+  - text: Eu sou uma I.A. conversacional.
+  utter_comopossoajudar:
+  - text: Como posso ajudar?
+  - text: Posso te ajudar com algo?
+  - text: Estou pronto para ajudar se você precisar.
+  - text: Posso ajudar em algo?
+  utter_ok:
+  - text: Ok!
+  - text: Tudo bem!
+  - text: Tá bom!
+  utter_quersabermais:
+  - text: Quer saber mais sobre mim? Fui treinado para uma apresentação de menos de 3 minutos.
+  utter_tipo_de_gente:
+  - text: Você desenvolve ou tem apenas curiosidade?
+  utter_apresenta_curioso:
+  - text: Sabe a Siri e a Alexa? Eu sou como elas, mas bem menos evoluído. E quero mesmo é me tornar um holo!
+  utter_apresenta_desenvolvedor:
+  - text: Sou uma IA conversacional baseada na framework Rasa.
+  utter_apresenta_cliente:
+  - text: Sabe a Siri e a Alexa? Eu sou como elas, mas bem menos evoluído. E quero mesmo é me tornar um holo! Imagina o que podemos fazer juntos!
+  utter_bot_fala_primeiro:
+  - text: Olá, humano! Posso te ajudar com vários tópicos, é só perguntar!<<*{"function":"words","content":["trabalhos","metodologia","clientes","sobre o bot","serviços","experiência","contratar"]}*>>
+  - text: Olá, tudo bem? Posso te ajudar com vários assuntos relacionados a nosso trabalho!<<*{"function":"words","content":["trabalhos","metodologia","clientes","sobre o bot","serviços","experiência","contratar"]}*>>
+  utter_ok_qualquer_coisa_chama:
+  - text: Tudo bem. Qualquer outra coisa é só me chamar!
+  - text: Ok! Precisando, estou à disposição.
+  - text: Certo... mas qualquer coisa estou por aqui.
+actions:
+- action_dia_tarde_noite
+- action_portfolio
+- action_send_mail
+- action_user_tipo
+- utter_algo_mais
+- utter_apresenta_cliente
+- utter_apresenta_curioso
+- utter_apresenta_desenvolvedor
+- utter_ask_user_email
+- utter_ask_user_mensagem
+- utter_ask_user_telefone
+- utter_awesome
+- utter_comopossoajudar
+- utter_contato
+- utter_dog_at_work
+- utter_ubec
+- utter_skyhub
+- utter_snowland
+- utter_origo
+- utter_travelheroes
+- utter_cena2020
+- utter_greet
+- utter_greet_resposta
+- utter_iamabot
+- utter_o_q_vc_faz
+- utter_ok
+- utter_ok_qualquer_coisa_chama
+- utter_slots_values
+- utter_tipo_de_gente
+- utter_veja_o_portfolio
+forms:
+  contact_form:
+    user_name:
+    - type: from_entity
+      entity: user_name
+      intent: meu_nome
+    user_email:
+    - type: from_entity
+      entity: user_email
+      intent: meu_email
+    user_telefone:
+    - type: from_entity
+      entity: user_telefone
+      intent: meu_telefone
+    user_mensagem:
+    - type: from_entity
+      entity: user_mensagem
+version: '2.0'

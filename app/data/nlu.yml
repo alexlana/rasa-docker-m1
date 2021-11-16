@@ -1,0 +1,432 @@
+version: "2.0"
+nlu:
+- intent: bot_fala_primeiro
+  examples: |
+    - __startbot__
+    - __startebot__
+    - __startebote__
+- intent: obliviate
+  examples: |
+    - Obliviate
+    - Oblivieight
+    - Obliviata
+    - Obliviat
+- intent: help_me
+  examples: |
+    - me ajuda
+    - me ajuda?
+    - pode me ajudar?
+    - preciso de uma informação
+    - queria ajuda
+    - queria ajuda com um item
+    - preciso q alguem ajude
+    - me ajuda com uma coisa?
+    - help!
+    - please help
+    - help please
+- intent: tem_portfolio
+  examples: |
+    - queria ver seu portfolio
+    - tem portfolio
+    - me mostra seus trabalhos
+    - portifolio
+    - que trabalhos vocês já fizeram
+    - pode me mostrar alguns trabalhos
+    - vcs têm portfólio
+    - você tem trabalhos para apresentar?
+    - vc tem jobs que eu possa ver?
+    - voces tem portfolio
+    - preciso conhecer alguns trabalhos de vocês
+    - me apresente alguns jobs
+    - o que vc já fez
+    - o que já foi feito
+    - o q vcs já produziram?
+    - tem como ver seu portfolio
+    - posso ver seus trabalhos
+    - me deixa ver seus trabalhos
+    - qual seu ultimo trabalhos
+    - último trabalho
+    - mim mostra trabalhos anteriores
+    - como posso conhecer o trabalho de vcs?
+    - tem portfolio?
+    - o alex tem portfolio?
+    - queria ver o portfólio do alex.
+    - me apresenta alguns trabalhos
+    - mostra seus trabalhos
+    - me apresenta jobs do alex
+    - onde vejo os trabalhos de vcs?
+    - apresente-me seu portfólio
+- intent: tem_experiencia
+  examples: |
+    - como é a experiência de vcs?
+    - qual sua experiência
+    - você tem experiência
+    - tem experiência em [php](linguagem_programacao)
+    - tem experiência em [javascript](linguagem_programacao)
+    - já trabalhou com [comunicação](nossa_area_trabalho)
+    - experiência com [desenvolvimento](nossa_area_trabalho)
+    - trabalha como [programador](nosso_cargo)
+    - é [desenvolvedor](nosso_cargo)
+- intent: diiiia
+  examples: |
+    - bom dia
+    - buongiorno
+    - bom dia. como vai?
+    - oi! bom dia!
+    - bom dia! tudo bem?
+    - buenos dias
+    - bueno dia
+    - bom dia!
+- intent: taaaarde
+  examples: |
+    - boa tarde
+    - boa tarde. como vai?
+    - oi! boa tarde!
+    - boa tarde. tudo bem?
+    - buenas tardes
+- intent: nooooite
+  examples: |
+    - boa noite
+    - boa noite. como vai?
+    - oi! boa noite!
+    - boa noite. tudo bem?
+    - buenas noites
+    - buenas notches
+- intent: greet
+  examples: |
+    - oi
+    - oi!
+    - oi, hexaquad!
+    - ola hexaquad
+    - oi bot
+    - olá
+    - oi, robô
+    - oi, bot
+    - hoi
+    - hey
+    - olá!
+    - opa!
+    - olá, meninos e meninas!
+    - oi! seu pai tem boi?
+    - oi bot!
+    - oi, bot!
+    - oi, de novo!
+- intent: greet_pergunta
+  examples: |
+    - oi! tudo bem?
+    - oi! como vai?
+    - tudo bem?
+    - iai, bot? de boa?
+    - e ai? de boa?
+    - tudo bem bot
+    - iai
+    - e ai
+    - eae
+    - tudo certo?
+    - como vai vc
+    - como vai você
+    - como vai voc
+    - oi, bot! tudo bem?
+    - como vai?
+    - tudo bem bot?
+    - como vai vc?
+    - como vai você?
+    - como vai voc?
+    - oi, tudo bem?
+- intent: greet_e_vc
+  examples: |
+    - e vc, robô?
+    - e com você, bot?
+    - tranquilo, e com vc?
+    - tudo certo, e você?
+    - tudo bem, e com vc?
+    - bão, e vc?
+    - bom, e você?
+    - tudo bom. e com vc?
+    - tudo bem! como vai vc?
+    - estou bem, e vc?
+    - estou bem, e tu?
+    - bem. e tu?
+    - tranquilo! e vc?
+- intent: whats_your_name
+  examples: |
+    - qual é o seu nome
+    - quem eh vc
+    - quem é você
+    - e seu nome é
+    - como vc se chama
+    - como se chama
+    - qual o seu nome
+    - como posso te chamar
+    - que nome foi dado a você ao nascer
+    - que nome vc tem
+    - me diz seu nome
+- intent: goodbye
+  examples: |
+    - tchau
+    - adeus
+    - até mais
+    - ate logo
+    - fui
+    - inté
+    - até!
+- intent: thankyou
+  examples: |
+    - obrigado
+    - obrigada
+    - brigado
+    - brigada
+    - obg
+    - muito obrigado
+    - muito obrigada
+    - obrigado!!!! :)
+    - obrigado!
+- intent: how_to_get_started
+  examples: |
+    - como posso comecar
+    - o que posso fazer
+    - começar
+    - o que você faz
+    - como você ajuda
+    - pra que vc serve
+    - não sei o que fazer
+    - n sei o q perguntar
+- intent: affirm
+  examples: |
+    - sim
+    - yeah
+    - yep
+    - yes
+    - é
+    - isso
+    - correto
+    - isso mesmo
+    - e isso
+    - pode ser
+    - se nao tem outro jeito
+    - otimo
+    - claro
+    - vamos em frete
+    - sigamos
+    - amei
+    - tá bem
+    - ta bom
+    - tranquilo!
+    - sim!
+    - pode cre
+    - pode crer
+    - bem
+    - quero sim!
+    - tudo sim
+    - bem tb
+    - quero!
+    - legal!
+- intent: deny
+  examples: |
+    - nao
+    - nunca
+    - nada disso
+    - isso nao
+    - não
+    - nope
+    - no
+    - absolutamente nao
+    - não, obrigado
+    - não, obrigada
+    - não mesmo
+    - sem chance
+    - sla
+    - sei lá
+    - esquece
+    - deixa prá lá...
+    - não, é só isso mesmo. obrigado!
+- intent: stop
+  examples: |
+    - nao
+    - deixa
+    - deixa pra la
+    - para
+    - nao quero dizer
+    - nao vou dar meus dados
+    - nao quero mais
+    - nao vou falar com ninguém
+    - chega
+    - esquece
+- intent: bot_challenge
+  examples: |
+    - você é um humano
+    - voce eh um robo
+    - voce é chatbot
+    - chatbot
+    - você é um chatbot
+    - vc é um bot
+    - vc esta vivo
+    - onde vc vive
+    - estou falando com um robo
+    - estou falando com uma pessoa
+    - estou falando com um humano
+    - vc é um robô?
+    - c é um robô?
+    - olá! vc é humano?
+    - vc é um bot?
+    - oi, humano!
+    - vc é um chatbot?
+    - vc é uma pessoa
+    - vc é robo?
+- intent: contato
+  examples: |
+    - como faço para entrar em contato com vcs?
+    - preciso falar com alguem
+    - falar com uma pessoa
+    - falar com humano
+    - quero entrar em contato
+    - entrar em contato com vocês
+    - contactar alguem
+    - falar com o alex
+    - preciso falar com o alex
+    - preciso entrar em contato
+    - quero contratar um servico
+    - preciso contratar um servico
+    - quero falar sobre um job
+    - atendente
+    - humano
+    - um atendente humano, por favor
+    - preciso falar com vcs
+    - quero falar com o [alex](funcionario)
+    - preciso falar com o [alex](funcionario)
+    - como faz pra contatar?
+    - quero te um papo com alguem ai
+    - preciso trocar uma ideia
+    - tenho q falar com vcs
+    - dá pra alguém falar comigo?
+    - quero contratar
+- intent: contact_form
+  examples: |
+    - [pedro](user_name)
+    - [alexlana@gmail.com](user_email)
+    - meu número é [61 99117 5358](user_telefone)
+    - [Tenho uma empresa de games e gostei muito do portfólio de vcs! Podemos conversar para vcs desenvolverem nosso site?](user_mensagem)
+    - meu nome é [alex](user_name)
+    - eu sou o [joão](user_name)
+    - eu sou a [alberto](user_name)
+    - sou [john](user_name)
+    - [charles](user_name)
+    - sou o [zeca](user_name), da [intel](empresa)
+    - [alex](user_name), da [hex](empresa)
+    - meu email é [alx@hex.dev.br](user_email)
+    - [991175358](user_telefone)
+    - [só preciso que alguém me ligue, por gentileza](user_mensagem)
+    - [josé](user_name)
+    - [aroldo](user_name)
+    - [61991175358](user_telefone)
+    - [me liga assim q puder](user_mensagem)
+    - então anota meu recado
+    - [joão melão](user_name)
+    - meu nome é [daniel](user_name)
+    - eu sou o [carlos](user_name) cliente dele
+    - o [eduardo](user_name) seu cliente
+    - [exemplo@example.com](user_email)
+    - [qualquercoisa@comarroba.io](user_email)
+    - [umemail@ca.co.uk](user_email)
+    - [99117-5358](user_telefone)
+    - [preciso que ele me ligue urgente, o site está fora do ar](user_mensagem)
+    - [alex](user_name)
+    - [exemplo@ex.com.br](user_email)
+    - [tenho uma empresa de telecom e gostaria de desenvolver um site para apresentar minha empresa](user_mensagem)
+    - [tá ruim pra geral. só dá um papo aí](user_mensagem)
+    - [Bom dia! Estamos precisando muito de um desenvolvedor full stack. Você é um?](user_mensagem)
+    - [Oi! quanto custa um chatobt?](user_mensagem)
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+- intent: pedir_meio_de_contato
+  examples: |
+    - preciso do [telefone](meio_de_contato) dele
+    - preciso do [e-mail](meio_de_contato) dele
+- intent: sou_desenvolvedor
+  examples: |
+    - desenvolvo
+    - desenvolvedor
+    - sou desenvolvedor
+    - sou programador
+    - programador
+    - sou de TI
+    - sou garoto de programa
+    - sou garota de programa
+    - desenvolvedora
+    - sou programadora
+    - programadora
+    - eu sou programador
+    - eu programo
+- intent: sou_curioso
+  examples: |
+    - curioso
+    - curiosa
+    - curiosidade
+    - só queria saber
+    - pessoa normal
+    - normal
+    - só quero saber mais
+- intent: fale_sobre_o_bot
+  examples: |
+    - me fale sobre vc
+    - fale sobre vc
+    - me conte sobre vc
+    - conte sobre vc
+    - conte mais sobre vc
+    - fale mais sobre vc
+    - me dê detalhes sobre vc
+    - me fale de vc
+    - me fala mais sobre vc
+    - me fala sobre vc
+    - fale-me sobre vc
+    - conte-me sobre você
+- intent: o_q_vc_faz
+  examples: |
+    - O q vcs fazem?
+    - de q é essa empresa?
+    - de q é a empresa?
+    - o q é o trabalho de vcs?
+    - pra q vcs servem?
+    - pq eu contrataria vcs?
+    - o q e o trabalho de vocês
+    - como funciona o serviço de vcs
+    - como eh o trabalho
+    - o q vc faz?
+    - o q é a atividade de vcs?
+    - qual a sua atividade
+    - com o q vc trabalha?
+    - com que você trabalha?
+
+- intent: port_dog_at_work
+  examples: |
+    - o que vc acha de dog at work?
+
+- intent: port_ubec
+  examples: |
+    - o que vc acha de UBEC?
+
+- intent: port_skyhub
+  examples: |
+    - o que vc acha de Skyhub?
+
+- intent: port_snowland
+  examples: |
+    - o que vc acha de Snowland?
+
+- intent: port_origo
+  examples: |
+    - o que vc acha de Órigo?
+
+- intent: port_travelheroes
+  examples: |
+    - o que vc acha de Travelheroes?
+
+- intent: port_cena2020
+  examples: |
+    - o que vc acha de Cena 2020?
+
+
+

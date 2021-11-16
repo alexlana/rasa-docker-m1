@@ -1,0 +1,496 @@
+version: "2.0"
+stories:
+
+  ###################################
+  ## cumprimentos
+  ###################################
+  - story: oi
+    steps:
+    - intent: greet
+    - action: utter_greet
+
+  - story: oi q bom
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: affirm
+    - action: utter_awesome
+
+  - story: oi pergunta q bom
+    steps:
+    - intent: greet_pergunta
+    - action: utter_greet_resposta
+    - intent: affirm
+    - action: utter_awesome
+
+  - story: oi a mais
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: greet
+    - action: utter_greet
+    - intent: affirm
+    - action: utter_awesome
+
+  - story: oi pergunta oi a mais
+    steps:
+    - intent: greet_pergunta
+    - action: utter_greet_resposta
+    - intent: greet
+    - action: utter_greet
+    - intent: affirm
+    - action: utter_awesome
+
+  - story: oi a mais 2
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: greet_e_vc
+    - action: utter_greet_fechando
+    - action: utter_get_started
+
+  - story: oi tudo bem
+    steps:
+    - intent: greet_pergunta
+    - action: utter_greet_resposta
+    - intent: greet_e_vc
+    - action: utter_greet_fechando
+
+  - story: oi prolongado
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: greet_pergunta
+    - action: utter_greet_resposta
+    - intent: affirm
+    - action: utter_awesome
+
+  - story: Bom dia
+    steps:
+    - intent: diiiia
+    - action: action_dia_tarde_noite
+    - intent: affirm
+    - action: utter_awesome
+
+  - story: Boa tarde
+    steps:
+    - intent: taaaarde
+    - action: action_dia_tarde_noite
+    - intent: affirm
+    - action: utter_awesome
+
+  - story: Boa noite
+    steps:
+    - intent: nooooite
+    - action: action_dia_tarde_noite
+    - intent: affirm
+    - action: utter_awesome
+
+
+  ###################################
+  ## bot challenge
+  ###################################
+  - story: bot challenge
+    steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: utter_comopossoajudar
+
+  - story: bot challenge dev curioso
+    steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: utter_comopossoajudar
+    - intent: fale_sobre_o_bot
+    - action: utter_tipo_de_gente
+    - intent: sou_desenvolvedor
+    - action: action_user_tipo
+    - slot_was_set:
+      - user_tipo: desenvolvedor
+    - action: utter_apresenta_desenvolvedor
+
+  - story: bot challenge pessoa curiosa
+    steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: utter_comopossoajudar
+    - intent: fale_sobre_o_bot
+    - action: utter_tipo_de_gente
+    - intent: sou_curioso
+    - action: action_user_tipo
+    - slot_was_set:
+      - user_tipo: curioso
+    - action: utter_apresenta_curioso
+
+  - story: bot challenge dev curioso massa
+    steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: utter_comopossoajudar
+    - intent: fale_sobre_o_bot
+    - action: utter_tipo_de_gente
+    - intent: sou_desenvolvedor
+    - action: action_user_tipo
+    - slot_was_set:
+      - user_tipo: desenvolvedor
+    - action: utter_apresenta_desenvolvedor
+    - intent: affirm
+    - action: utter_comopossoajudar
+
+  - story: bot challenge pessoa curiosa massa
+    steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: utter_comopossoajudar
+    - intent: fale_sobre_o_bot
+    - action: utter_tipo_de_gente
+    - intent: sou_curioso
+    - action: action_user_tipo
+    - slot_was_set:
+      - user_tipo: curioso
+    - action: utter_apresenta_curioso
+    - intent: affirm
+    - action: utter_comopossoajudar
+
+  - story: bot challenge pessoa desistente
+    steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: utter_comopossoajudar
+    - intent: fale_sobre_o_bot
+    - action: utter_tipo_de_gente
+    - intent: deny
+    - action: utter_comopossoajudar
+
+  - story: bot challenge dev apressadinho
+    steps:
+    - intent: fale_sobre_o_bot
+    - action: utter_tipo_de_gente
+    - intent: sou_desenvolvedor
+    - action: action_user_tipo
+    - slot_was_set:
+      - user_tipo: desenvolvedor
+    - action: utter_apresenta_desenvolvedor
+
+  - story: bot challenge curioso apressadinho
+    steps:
+    - intent: fale_sobre_o_bot
+    - action: utter_tipo_de_gente
+    - intent: sou_curioso
+    - action: action_user_tipo
+    - slot_was_set:
+      - user_tipo: curioso
+    - action: utter_apresenta_curioso
+
+  - story: bot challenge dev confirmado
+    steps:
+    - slot_was_set:
+      - user_tipo: desenvolvedor
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: utter_comopossoajudar
+    - intent: fale_sobre_o_bot
+    - action: utter_apresenta_desenvolvedor
+
+  - story: bot challenge curioso confirmado
+    steps:
+    - slot_was_set:
+      - user_tipo: curioso
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: utter_comopossoajudar
+    - intent: fale_sobre_o_bot
+    - action: utter_apresenta_curioso
+
+  - story: bot challenge cliente confirmado
+    steps:
+    - slot_was_set:
+      - user_tipo: cliente
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: utter_comopossoajudar
+    - intent: fale_sobre_o_bot
+    - action: utter_apresenta_cliente
+
+
+  ###################################
+  ## portfolio
+  ###################################
+  - story: mostrar portfolio
+    steps:
+    - intent: tem_portfolio
+    - action: utter_tem_portfolio
+    - action: action_portfolio
+
+
+  ###################################
+  ## q p**ra eh essa
+  ###################################
+  - story: o q vc faz 1
+    steps:
+    - intent: o_q_vc_faz
+    - action: utter_o_q_vc_faz
+    - intent: affirm
+    - action: utter_veja_o_portfolio
+    - action: action_portfolio
+
+
+  ###################################
+  ## q p**ra eh essa, nao quero saber
+  ###################################
+  - story: o q vc faz nops
+    steps:
+    - intent: o_q_vc_faz
+    - action: utter_o_q_vc_faz
+    - intent: deny
+    - action: utter_ok
+    - action: utter_comopossoajudar
+
+
+  ###################################
+  ## contato
+  ###################################
+  - story: contato 1
+    steps:
+    - intent: contato
+    - action: utter_contato
+    - intent: affirm
+    - action: contact_form
+    - active_loop: contact_form
+    - slot_was_set:
+      - requested_slot: user_name
+    - intent: contact_form
+      entities:
+      - user_name: alex
+    - slot_was_set:
+      - user_name: alex
+    - action: utter_ask_user_email
+    - intent: contact_form
+      entities:
+      - user_email: exemplo@ex.com.br
+    - slot_was_set:
+      - user_email: exemplo@ex.com.br
+    - action: utter_ask_user_telefone
+    - intent: contact_form
+      entities:
+      - user_telefone: '991175358'
+    - slot_was_set:
+      - user_telefone: '991175358'
+    - action: utter_ask_user_mensagem
+    - intent: contact_form
+      entities:
+      - user_mensagem: tenho uma empresa de telecom e gostaria de desenvolver um site para apresentar minha empresa
+    - slot_was_set:
+      - user_mensagem: tenho uma empresa de telecom e gostaria de desenvolver um site para apresentar minha empresa
+    - action: action_send_mail
+    - action: utter_slots_values
+    - action: utter_algo_mais
+    - intent: deny
+    - action: utter_ok_qualquer_coisa_chama
+
+
+
+  # - story: experiencia
+  #   steps:
+  #   - intent: tem_experiencia
+  #   - action: utter_tem_experiencia
+
+  # - story: how_to_get_started, nao pretende contratar
+  #   steps:
+  #   - intent: how_to_get_started
+  #   - action: utter_get_started
+  #   - intent: deny
+  #   - action: action_set_music_preference
+  #   - slot_was_set:
+  #     - likes_music: False
+  #   - action: utter_goodbye
+
+  # - story: how_to_get_started, pretende contratar
+  #   steps:
+  #   - intent: how_to_get_started
+  #   - action: utter_get_started
+  #   - intent: affirm
+  #   - action: action_set_music_preference
+  #   - slot_was_set:
+  #     - likes_music: True
+  #   - action: utter_awesome
+
+
+
+
+
+  # - story: experiencia / contato
+  #   steps:
+  #   - intent: greet
+  #   - action: utter_greet
+  #   # - intent: tem_portfolio
+  #   # - action: utter_tem_portfolio
+  #   - intent: tem_experiencia
+  #   - action: utter_tem_experiencia
+  #   - intent: contato
+  #   - action: utter_contato
+  #   - action: contact_form
+  #   - active_loop: contact_form
+  #   - slot_was_set:
+  #     - requested_slot: user_name
+  #   - intent: contact_form
+  #     entities:
+  #     - user_name: pedro
+  #   - slot_was_set:
+  #     - user_name: pedro
+  #   - action: contact_form
+  #   - slot_was_set:
+  #     - requested_slot: user_email
+  #   - slot_was_set:
+  #     - user_email: alexlana@gmail.com
+  #   - slot_was_set:
+  #     - requested_slot: user_telefone
+  #   - slot_was_set:
+  #     - user_telefone: 61 99117 5358
+  #   - slot_was_set:
+  #     - requested_slot: user_mensagem
+  #   - slot_was_set:
+  #     - user_mensagem: Tenho uma empresa de games e gostei muito do portfólio de vcs! Podemos conversar para vcs desenvolverem nosso site?
+  #   - active_loop: null
+  #   - action: utter_slots_values
+  #   - intent: thankyou
+  #   - action: utter_youarewelcome
+
+  # - story: oi contato 1
+  #   steps:
+  #   - intent: greet
+  #   - action: utter_greet
+  #   - intent: contato
+  #   - action: contact_form
+  #   - active_loop: contact_form
+  #   - slot_was_set:
+  #     - requested_slot: user_name
+  #   - intent: contact_form
+  #     entities:
+  #     - user_name: zeca
+  #     - empresa: intel
+  #   - slot_was_set:
+  #     - user_name: zeca
+  #   - action: contact_form
+  #   - slot_was_set:
+  #     - requested_slot: user_email
+  #   - slot_was_set:
+  #     - requested_slot: user_email
+  #   - intent: contact_form
+  #     entities:
+  #     - user_email: alx@hex.dev.br
+  #   - slot_was_set:
+  #     - user_email: alx@hex.dev.br
+  #   - action: contact_form
+  #   - slot_was_set:
+  #     - requested_slot: user_telefone
+  #   - intent: contact_form
+  #     entities:
+  #     - user_telefone: '991175358'
+  #   - slot_was_set:
+  #     - user_telefone: '991175358'
+  #   - action: contact_form
+  #   - slot_was_set:
+  #     - requested_slot: user_mensagem
+  #   - intent: contact_form
+  #     entities:
+  #     - user_mensagem: só preciso que alguém me ligue, por gentileza
+  #   - slot_was_set:
+  #     - user_mensagem: só preciso que alguém me ligue, por gentileza
+  #   - intent: contact_form
+  #   - action: utter_slots_values
+
+  # - story: oi contato 2
+  #   steps:
+  #   - intent: greet
+  #   - action: utter_greet
+  #   - intent: contato
+  #     entities:
+  #     - funcionario: alex
+  #   - action: contact_form
+  #   - active_loop: contact_form
+  #   - slot_was_set:
+  #     - requested_slot: user_name
+  #   - intent: contact_form
+  #     entities:
+  #     - user_name: aroldo
+  #   - slot_was_set:
+  #     - user_name: aroldo
+  #   - action: utter_ask_user_telefone
+  #   - intent: contact_form
+  #     entities:
+  #     - user_telefone: '61991175358'
+  #   - slot_was_set:
+  #     - user_telefone: '61991175358'
+  #   - action: utter_ask_user_email
+  #   - intent: contact_form
+  #     entities:
+  #     - user_email: alexlana@gmail.com
+  #   - slot_was_set:
+  #     - user_email: alexlana@gmail.com
+  #   - action: utter_ask_user_mensagem
+  #   - intent: contact_form
+  #     entities:
+  #     - user_mensagem: me liga assim q puder
+  #   - slot_was_set:
+  #     - user_mensagem: me liga assim q puder
+  #   - action: utter_slots_values
+  #   - intent: thankyou
+  #   - action: utter_youarewelcome
+
+  # - story: contato negado form
+  #   steps:
+  #   - intent: contato
+  #     entities:
+  #     - funcionario: alex
+  #   - action: utter_contato
+  #   - intent: deny
+  #   - action: utter_comopossoajudar
+  #   - intent: pedir_meio_de_contato
+  #     entities:
+  #     - meio_de_contato: telefone
+  #   - action: utter_negar_contato
+  #   - intent: contact_form
+  #   - action: utter_ask_user_name
+  #   - intent: contact_form
+  #     entities:
+  #     - user_name: joão melão
+  #   - slot_was_set:
+  #     - user_name: joão melão
+  #   - action: utter_ask_user_email
+  #   - intent: contact_form
+  #     entities:
+  #     - user_email: exemplo@example.com
+  #   - slot_was_set:
+  #     - user_email: exemplo@example.com
+  #   - action: utter_ask_user_telefone
+  #   - intent: contact_form
+  #     entities:
+  #     - user_telefone: 99117-5358
+  #   - slot_was_set:
+  #     - user_telefone: 99117-5358
+  #   - action: utter_ask_user_mensagem
+  #   - intent: contact_form
+  #     entities:
+  #     - user_mensagem: preciso que ele me ligue urgente, o site está fora do ar
+  #   - slot_was_set:
+  #     - user_mensagem: preciso que ele me ligue urgente, o site está fora do ar
+  #   - action: utter_slots_values
+
+  # - story: help 1
+  #   steps:
+  #   - intent: help_me
+  #   - action: utter_help_me
+
+
+
+
+
+
+
+
+
+
+
+
+
