@@ -39,6 +39,26 @@ RUN apt-get install -y dh-autoreconf libcurl4-gnutls-dev libexpat1-dev gettext l
 
 
 
+RUN apt-get update -qq && \
+  apt-get install -y --no-install-recommends \
+  build-essential \
+  wget \
+  openssh-client \
+  graphviz-dev \
+  pkg-config \
+  git-core \
+  openssl \
+  libssl-dev \
+  libffi7 \
+  libffi-dev \
+  libpng-dev \
+  && apt-get autoremove -y
+
+# Make sure that all security updates are installed
+RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends
+
+
+
 
 # copy files
 COPY ./rasa /build/
@@ -53,7 +73,7 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
 ENV PATH "/root/.poetry/bin:${PATH}"
 
 # install dependencies
-RUN python -m venv /opt/venv && \
+RUN python3 -m venv /opt/venv && \
   . /opt/venv/bin/activate && pip install --no-cache-dir -U "pip==21.*"
 RUN . /opt/venv/bin/activate
 
@@ -66,14 +86,53 @@ COPY ./repo/bashrc /etc/bash.bashrc
 RUN chmod a+rwx /etc/bash.bashrc
 
 
-
-
 RUN apt-get install -y wget
+
+
+RUN wget https://github.com/Qengineering/TensorFlow-Addons-Raspberry-Pi_64-bit/raw/main/tensorflow_addons-0.14.0.dev0-cp38-cp38-linux_aarch64.whl
+RUN python3 -m pip install --no-cache-dir tensorflow_addons-0.14.0.dev0-cp38-cp38-linux_aarch64.whl
+RUN rm tensorflow_addons-0.14.0.dev0-cp38-cp38-linux_aarch64.whl
+
+
 RUN wget https://github.com/bazelbuild/bazel/releases/download/4.2.1/bazel-4.2.1-linux-arm64
 RUN chmod +x bazel-4.2.1-linux-arm64
 RUN mv bazel-4.2.1-linux-arm64 /usr/local/bin/bazel
 RUN bazel version
 RUN which bazel
+
+
+
+RUN apt-get install -y git
+# RUN git clone --depth=1 https://github.com/tensorflow/addons.git
+# # RUN pip install --upgrade numpy
+# RUN apt-get install -y sudo
+
+
+
+# RUN wget https://github.com/Qengineering/TensorFlow-Addons-Raspberry-Pi_64-bit/raw/main/configure.py
+# RUN mkdir ~/addons/
+# RUN mv configure.py ~/addons/
+# RUN wget https://github.com/Qengineering/TensorFlow-Addons-Raspberry-Pi_64-bit/raw/main/build_pip_pkg.sh
+# RUN mkdir ~/addons/build_deps
+# RUN mv build_pip_pkg.sh ~/addons/build_deps
+# RUN chmod 755 ~/addons/build_deps/build_pip_pkg.sh
+# RUN sudo ln -s /usr/local/lib/python3.8/dist-packages/tensorflow/python/_pywrap_tensorflow_internal.so /usr/lib/_pywrap_tensorflow_internal.so
+
+# WORKDIR /root/addons
+
+# RUN touch ~/.bazelrc
+# RUN touch ~/WORKSPACE
+
+# RUN python3 configure.py
+
+# RUN bazel clean
+# RUN bazel build build_pip_pkg
+# RUN sudo bazel-bin/build_pip_pkg /tmp/tensoraddons_pkg
+# WORKDIR /tmp/tensoraddons_pkg
+# RUN sudo -H pip3 install tensorflow_addons-0.14.0.dev0-cp38-cp38m-linux_aarch64.whl
+# RUN rm -rf ~/addons
+
+# WORKDIR /build
 
 
 
@@ -98,9 +157,9 @@ RUN rm -rf dist *.egg-info
 # make sure we use the virtualenv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# RUN python -m spacy download pt_core_news_md && \
-#     python -m spacy link pt_core_news_md pt
-RUN python -m spacy download en_core_web_md
+# RUN python3 -m spacy download pt_core_news_md && \
+#     python3 -m spacy link pt_core_news_md pt
+# RUN python3 -m spacy download en_core_web_md
 
 
 
@@ -117,6 +176,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 # set HOME environment variable
 ENV HOME=/app
 
+COPY ./app /app
+
 # update permissions & change user to not run as root
 WORKDIR /app
 RUN chgrp -R 0 /app && chmod -R g=u /app && chmod o+wr /app
@@ -129,6 +190,6 @@ VOLUME /tmp
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # the entry point
-EXPOSE 5005
-ENTRYPOINT ["rasa"]
-CMD ["--help"]
+# EXPOSE 5005
+# ENTRYPOINT ["rasa"]
+# CMD ["--help"]

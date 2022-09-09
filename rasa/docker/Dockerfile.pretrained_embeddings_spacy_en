@@ -15,6 +15,39 @@ WORKDIR /build
 # install dependencies
 RUN python -m venv /opt/venv && \
   . /opt/venv/bin/activate && pip install --no-cache-dir -U "pip==21.*"
+
+##################################################################
+## ARM64 - INI
+RUN pip3 install --upgrade pip
+RUN python3 -m pip install --upgrade setuptools
+RUN pip3 install --no-cache-dir  --force-reinstall -Iv grpcio
+
+RUN wget https://github.com/bazelbuild/bazel/releases/download/4.2.1/bazel-4.2.1-linux-arm64
+RUN chmod +x bazel-4.2.1-linux-arm64
+RUN mv bazel-4.2.1-linux-arm64 /usr/local/bin/bazel
+RUN bazel version
+RUN which bazel
+
+RUN apt-get update -qq && apt-get install -y libhdf5-dev pkg-config
+RUN pip install h5py
+ADD ["https://github.com/KumaTea/tensorflow-aarch64/releases/download/v2.6/tensorflow-2.6.0-cp38-cp38-linux_aarch64.whl", "/tensorflow-2.6.0-cp38-cp38-linux_aarch64.whl"]
+RUN python3 -m pip install --no-cache-dir /tensorflow-2.6.0-cp38-cp38-linux_aarch64.whl
+RUN rm /tensorflow-2.6.0-cp38-cp38-linux_aarch64.whl
+COPY ./_repo/bashrc /etc/bash.bashrc
+RUN chmod a+rwx /etc/bash.bashrc
+
+RUN apt-get install -y wget
+
+RUN wget https://github.com/Qengineering/TensorFlow-Addons-Raspberry-Pi_64-bit/raw/main/tensorflow_addons-0.14.0.dev0-cp38-cp38-linux_aarch64.whl
+RUN python3 -m pip install --no-cache-dir tensorflow_addons-0.14.0.dev0-cp38-cp38-linux_aarch64.whl
+RUN rm tensorflow_addons-0.14.0.dev0-cp38-cp38-linux_aarch64.whl
+
+# RUN apt-get install -y git
+# RUN pip install --upgrade numpy
+# RUN pip install --upgrade pip setuptools wheel
+## ARM64 - FIM
+##################################################################
+
 RUN . /opt/venv/bin/activate && poetry install --extras spacy --no-dev --no-root --no-interaction
 RUN . /opt/venv/bin/activate && poetry build -f wheel -n && \
   pip install --no-deps dist/*.whl && \
@@ -49,6 +82,6 @@ VOLUME /tmp
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # the entry point
-EXPOSE 5005
-ENTRYPOINT ["rasa"]
-CMD ["--help"]
+#EXPOSE 5005
+#ENTRYPOINT ["rasa"]
+#CMD ["--help"]
